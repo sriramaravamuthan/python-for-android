@@ -132,6 +132,12 @@
     {% for a in args.add_activity  %}
     <activity android:name="{{ a }}"></activity>
     {% endfor %}
+    <receiver android:name="com.eroad.uploader.DashcamuploaderBootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+    </receiver>
     </application>
 
 </manifest>
