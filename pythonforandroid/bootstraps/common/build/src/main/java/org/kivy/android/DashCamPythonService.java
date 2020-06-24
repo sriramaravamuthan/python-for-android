@@ -19,6 +19,11 @@ import android.app.NotificationManager;
 import android.app.NotificationChannel;
 import android.graphics.Color;
 
+/** 
+    This class is a copy cat of PythonService @see org.kivy.android.PythonService but it has
+    fixes for sudden crash of service. The fix is only in startCommand that handles NPE when intent deliverd to startCommand is null.
+    It recreates the intent required to start the service in foreground. Also the native start piggy backs on PythonService.nativeStart.
+ */
 public class DashCamPythonService extends Service implements Runnable {
 
     private static final String SERVICE_ENTRY_POINT= "gen3cam/services/dashCamUploaderService.py";
