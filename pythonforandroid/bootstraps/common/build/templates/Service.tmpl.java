@@ -2,10 +2,10 @@ package {{ args.package }};
 
 import android.content.Intent;
 import android.content.Context;
-import org.kivy.android.PythonService;
+import org.kivy.android.DashCamPythonService;
 
 
-public class Service{{ name|capitalize }} extends PythonService {
+public class Service{{ name|capitalize }} extends DashCamPythonService {
     {% if sticky %}
     @Override
     public int startType() {

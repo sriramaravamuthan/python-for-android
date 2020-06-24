@@ -176,7 +176,7 @@ public class DashCamPythonService extends Service implements Runnable {
         PythonUtil.loadLibraries(app_root_file,
             new File(getApplicationInfo().nativeLibraryDir));
         this.mService = this;
-        nativeStart(
+        PythonService.nativeStart(
             androidPrivate, androidArgument,
             serviceEntrypoint, pythonName,
             pythonHome, pythonPath,
@@ -202,11 +202,4 @@ public class DashCamPythonService extends Service implements Runnable {
         ix.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         return ix;
     }
-
-    // Native part
-    public static native void nativeStart(
-            String androidPrivate, String androidArgument,
-            String serviceEntrypoint, String pythonName,
-            String pythonHome, String pythonPath,
-            String pythonServiceArgument);
 }
