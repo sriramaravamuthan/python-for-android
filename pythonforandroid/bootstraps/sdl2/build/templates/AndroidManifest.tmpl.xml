@@ -132,7 +132,8 @@
     {% for a in args.add_activity  %}
     <activity android:name="{{ a }}"></activity>
     {% endfor %}
-    <receiver android:name="com.eroad.uploader.DashcamuploaderBootReceiver" >
+    <!-- This class is present in gen3-cam-python and couldn't be moved since it is tied with python and generated code-->
+    <receiver android:name="com.eroad.uploader.DashCamUploaderBootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
