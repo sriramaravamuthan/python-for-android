@@ -59,7 +59,8 @@
                  android:icon="@drawable/icon"
                  android:allowBackup="{{ args.allow_backup }}"
                  android:theme="{{args.android_apptheme}}{% if not args.window %}.Fullscreen{% endif %}"
-                 android:hardwareAccelerated="true" >
+                 android:hardwareAccelerated="true" 
+                 android:extractNativeLibs="false">
         {% for l in args.android_used_libs %}
         <uses-library android:name="{{ l }}" />
         {% endfor %}
@@ -133,7 +134,7 @@
     <activity android:name="{{ a }}"></activity>
     {% endfor %}
     <!-- This class is present in gen3-cam-python and couldn't be moved since it is tied with python and generated code-->
-    <receiver android:name="com.eroad.controller.DashCamUploaderBootReceiver" >
+    <receiver android:name="com.eroad.uploader.DashCamUploaderBootReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
                 <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
